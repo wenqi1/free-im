@@ -1,0 +1,23 @@
+.logo {
+    float: left;
+    color: #fff;
+    font-size: 30px;
+}
+.user-info {
+    float: right;
+}
+.menu {
+    margin-left: 100px;
+}
+.site-layout-content {
+    background: #fff;
+    padding: 24px;
+    min-height: 680px;
+}
+.footer {
+    text-align: center;
+    padding: 5px 0;
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+}
