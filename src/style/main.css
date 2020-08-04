@@ -3,11 +3,12 @@
     color: #fff;
     font-size: 30px;
 }
+.header-title {
+    margin-left: 200px;
+}
 .user-info {
     float: right;
-}
-.menu {
-    margin-left: 100px;
+    color: #fff;
 }
 .site-layout-content {
     background: #fff;

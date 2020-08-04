@@ -1,11 +1,39 @@
 import React, {Component} from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Dropdown, Button } from 'antd';
 import {Link, Route} from 'react-router-dom';
 import Home from './home.js';
 import News from './news.js';
 import '../style/main.css';
 
 const { Header, Content, Footer} = Layout;
+
+const  menu1 = (
+    <Menu>
+        <Menu.Item>
+             <Link to="/main/home">1st menu item</Link>
+        </Menu.Item>
+        <Menu.Item>
+            <Link to="/main/news">2nd menu item</Link>
+        </Menu.Item>
+        <Menu.Item>
+            3rd menu item
+        </Menu.Item>
+    </Menu>
+  );
+
+const  menu2 = (
+    <Menu>
+        <Menu.Item>
+            1st menu item
+        </Menu.Item>
+        <Menu.Item>
+            2nd menu item
+        </Menu.Item>
+        <Menu.Item>
+            3rd menu item
+        </Menu.Item>
+    </Menu>
+  );
 
 class Main extends Component{
     render(){
@@ -15,21 +43,19 @@ class Main extends Component{
                     <div className='logo'>
                         网站logo
                     </div>
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} style={{marginLeft: '200px'}}>
-                        <Menu.Item key="1">
-                            <Link to="/main/home">首页</Link>
-                        </Menu.Item>
-                        <Menu.Item key="2">
-                            工具一
-                        </Menu.Item>
-                        <Menu.Item key="3">
-                            工具二
-                        </Menu.Item>
-                        <Menu.Item key="4">
-                            <Link to="/main/news">报刊</Link>
-                        </Menu.Item>
-                    </Menu>
-
+                    <div className="header-title">
+                        <Button type="link" size="large" style={{color: "#fff"}} href="/#/main/home">首页</Button>
+                        <Dropdown overlay={menu1} placement="bottomCenter" arrow>
+                            <Button type="link" size="large" style={{color: "#fff"}}>目录一</Button>
+                        </Dropdown>
+                        <Dropdown overlay={menu2} placement="bottomCenter" arrow>
+                        <Button type="link" size="large" style={{color: "#fff"}}>目录二</Button>
+                        </Dropdown>
+                        <div className="user-info">
+                            欢迎 XXXXXXXX
+                        </div>
+                    </div>
+                    
                 </Header>
                 <Content style={{ padding: '0 10px'}}>
                     <div className="site-layout-content">
