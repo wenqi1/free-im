@@ -1,0 +1,26 @@
+.login-component {
+    background-image: url(../image/login_background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.login-form {
+    width: 350px;
+    height: 300px;
+    background: #ffffff;
+    padding: 20px 10px 10px 10px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 150px;
+}
+.login-form-remember {
+    float: right;
+}
+.login-form-forgot {
+    float: left;
+}
+.login-form-button {
+    width: 100%;
+}
