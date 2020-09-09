@@ -3,12 +3,8 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import '../style/login.css';
 
-const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-};
-const tailLayout = {
-    wrapperCol: { offset: 8, span: 16 },
+const headerFormItemLayout = {
+    wrapperCol: { offset: 10, span: 16 },
 };
 
 class Login extends Component{
@@ -26,6 +22,7 @@ class Login extends Component{
                     initialValues={{ remember: true }}
                     onFinish={this.onFinish}
                     >
+                    <Form.Item {...headerFormItemLayout} style={{fontSize:'25px',fontWeight: 'bold'}}>登录</Form.Item>
                     <Form.Item
                         name="username"
                         rules={[{ required: true, message: '请输入用户名' }]}
@@ -52,7 +49,7 @@ class Login extends Component{
 
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
-                        <a href="">新用户注册!</a>
+                        <a href="">新用户注册</a>
                     </Form.Item>
                 </Form>
             </div>

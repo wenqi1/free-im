@@ -1,0 +1,31 @@
+.register-component {
+    background-image: url(../image/login_background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+.register-form {
+    width: 500px;
+    height: 450px;
+    background: #ffffff;
+    padding: 20px;
+    position: absolute;   
+    top: 50%;   
+    left: 50%;   
+    -webkit-transform: translate(-50%, -50%);   
+    -moz-transform: translate(-50%, -50%);   
+    -ms-transform: translate(-50%, -50%);   
+    -o-transform: translate(-50%, -50%);   
+    transform: translate(-50%, -50%);   
+ 
+}
+.login-form-remember {
+    float: right;
+}
+.login-form-forgot {
+    float: left;
+}
+.login-form-button {
+    width: 100%;
+}
