@@ -7,18 +7,13 @@
 }
 .register-form {
     width: 500px;
-    height: 450px;
+    height: 500px;
     background: #ffffff;
     padding: 20px;
     position: absolute;   
     top: 50%;   
-    left: 50%;   
-    -webkit-transform: translate(-50%, -50%);   
-    -moz-transform: translate(-50%, -50%);   
-    -ms-transform: translate(-50%, -50%);   
-    -o-transform: translate(-50%, -50%);   
-    transform: translate(-50%, -50%);   
- 
+    left: 50%;    
+    transform: translate(-50%, -50%); 
 }
 .login-form-remember {
     float: right;

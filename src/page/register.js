@@ -1,20 +1,45 @@
 import React, {Component} from 'react';
-import {Form, Input, Tooltip, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import {Form, Input, Radio, Button } from 'antd';
+import axios from 'axios';
 import '../style/register.css';
 
-const headerFormItemLayout = {
-    wrapperCol: { offset: 11, span: 16 },
+const layout = {
+    labelCol: { span: 4 },
+    wrapperCol: { span: 20 },
 };
+
+const headerFormItemLayout = {
+    wrapperCol: { offset: 11, span: 13 },
+};
+
 const tailFormItemLayout = {
-    wrapperCol: { offset: 8, span: 16 },
+    wrapperCol: { offset: 8, span: 16 }, 
 };
 
 class Register extends Component{
+    constructor(props) {
+        super(props);
+        this.state={
+            sexValue: 1
+        }
+    }
+
     formRef = React.createRef();
 
     onFinish = values => {
-        console.log('Received values of form: ', values);
+        axios.post('/api/user/register', values)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    };
+
+    onChange = e => {
+        this.setState({
+            sexValue: e.target.value,
+        });
     };
 
     render(){
@@ -22,6 +47,7 @@ class Register extends Component{
         return(
             <div className="register-component">
                 <Form
+                    {...layout}
                     ref={this.formRef}
                     name="register"
                     className="register-form"
@@ -29,7 +55,7 @@ class Register extends Component{
                 >
                     <Form.Item {...headerFormItemLayout} style={{fontSize:'25px',fontWeight: 'bold'}}>注册</Form.Item>
                     <Form.Item
-                        name="email"
+                        name="mail"
                         label="E-mail"
                         rules={[
                         {
@@ -83,22 +109,24 @@ class Register extends Component{
                     </Form.Item>
 
                     <Form.Item
-                        name="nickname"
-                        label={
-                        <span>
-                            昵称&nbsp;
-                            <Tooltip title="您的网名">
-                            <QuestionCircleOutlined />
-                            </Tooltip>
-                        </span>
-                        }
-                        rules={[{ required: true, message: '请输入您的昵称', whitespace: true }]}
+                        name="userName"
+                        label="用户名"
+                        rules={[{ required: true, message: '请输入您的用户名'}]}
                     >
                         <Input />
                     </Form.Item>
-
+                    <Form.Item 
+                        name="sex" 
+                        label="性别"
+                        rules={[{ required: true, message: '性别不能为空'}]}
+                    >
+                        <Radio.Group onChange={this.onChange} value={this.state.sexValue}>
+                            <Radio value={1}>男</Radio>
+                            <Radio value={2}>女</Radio>
+                        </Radio.Group>
+                    </Form.Item>
                     <Form.Item
-                        name="phone"
+                        name="account"
                         label="手机号"
                         rules={[{ required: true, message: '请输入您的手机号' }]}
                     >

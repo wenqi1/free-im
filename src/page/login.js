@@ -10,8 +10,14 @@ const headerFormItemLayout = {
 class Login extends Component{
     
     onFinish = values => {
-        console.log('Received values of form: ', values);
-      };
+        axios.post('/api/user/login', values)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    };
 
     render(){
         return(
@@ -49,7 +55,7 @@ class Login extends Component{
 
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
-                        <a href="">新用户注册</a>
+                        <a href="/#/register">新用户注册</a>
                     </Form.Item>
                 </Form>
             </div>
